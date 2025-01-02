@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>homepage</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+	<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+</head>
+<body>
+   <div class="container vh-100">
+	<div class="row justify-content-center h-100">
+		<div class="card w-50 my-auto shadow">
+			 <div class="card-header text-center bg-primary text-white">
+				 <h2>Insert Records</h2>	
+			 </div>
+
+			 <div class="card-body">
+				<form action="/insertTask" method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+			   <div class="form-group">
+						 <label for="name">First Name</label>
+						 <input type="text" id="name" class="form-control" name="name" required="">
+					 </div>
+
+					 <div class="form-group">
+						<label for="name">Last Name</label>
+						<input type="text" id="name" class="form-control" name="lname" required="">
+					</div>
+
+					 <div class="form-group">
+						 <label for="email">Email</label>
+						 <input type="email" id="email" class="form-control" name="email" required="">
+					 </div>
+
+					 <div class="form-group">
+						 <label for="age">Age</label>
+						 <input type="text" id="mobile" class="form-control" name="age" required=""> 
+					 </div>
+
+					 <div class="form-group">
+						 <label for="image">Image</label>
+						 <input type="file" id="image" class="form-control" name="img" required="">
+					 </div>
+
+			   <input type="submit" class="btn btn-primary w-100" value="Insert">
+				 </form>
+			 </div>
+
+			 <div class="card-footer text-center">
+				 <small> &copy; Technical Nitish</small>
+			 </div>	
+		</div>
+	</div>
+</div>
+
+
+
+   {% endblock %}
+</body>
+</html>
